@@ -9,5 +9,6 @@
     (export "add" (func $add))
 )
 
+;; wat2wasm input.wat -o output.wasm     将文本格式文件编译为WebAssembly汇编格式文件
 
 
