@@ -1,0 +1,45 @@
+<!-- 
+    console.assert(value[,message][,...args])   断言，如果参数expr为假,则抛出AssertionError。前置断言一般用于确保合法的输入，后置断言则用于保证合法的输入产生了合法的输出
+ -->
+
+<!-- 
+    二进制数组(ArrayBuffer对象，TypedArray视图)是js操作二进制数据的接口。基于二进制数组，js可以直接操作计算机内存。
+    二进制数组由三类对象组成：
+    1.ArrayBuffer：代表内存中一段空间，要操作该内存空间必须通过基于其创建的TypedArray或DataView进行
+    2.TypedArray：Unit8Array、Float32Array等9中二进制数组的统称，TypedArray的底层是ArrayBuffer对象，通过它们可以读写底层的二进制数组
+    3.DataView：用于处理类似c语言中结构体类型的数据，其中每个元素的类型可能并不相同
+  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 示例：先创建一个1024字节的ArrayBuffer，然后再分别以uint8和uint32类型处理数组的元素
+    let buffer = new ArrayBuffer(1024)
+
+    // 转为uint8处理
+    let u8Array = new Uint8Array(buffer, 0, 100)
+    for (let i = 0; i < Uint8Array.length; i++) {
+        u8Array[i] = 255
+    }
+
+    // 转为uint32处理
+    let u32Array = new Uint32Array(buffer,100)
+    for (let i = 0;i < u32Array.length;i++) {
+        u32Array[i] = 0xffffffff
+    }
+
+    // TypedArray对象的buffer属性返回底层的ArrayBuffer对象，为只读属性。
+    // TypedArray对象的byteOffset属性返回当前二进制数组对象从底层的ArrayBuffer对象的第几个字节开始，byteLength返回当前二进制数组对象的内存的字节大小，它们都是只读属性
+</script>
+
+</html>

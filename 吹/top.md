@@ -1,0 +1,1 @@
+能用WebAssembly编译的，终将用WebAssembly编译
